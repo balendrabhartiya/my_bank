@@ -10,15 +10,17 @@ type DoughnutChartProps = {
 };
 
 const DoughnutChart = ({ accounts }: DoughnutChartProps) => {
+const accountName = accounts.map((a) => a.name);
+const balances = accounts.map((a) => a.currentBalance);
   const data = {
     datasets: [
       {
         label: 'Banks',
-        data: [1250, 2500, 3750], // corrected 'date' to 'data'
+        data: balances, // corrected 'date' to 'data'
         backgroundColor: ['#0747b6', '#2265d8', '#2f91fa'],
       },
     ],
-    labels: ['Bank 1', 'Bank 2', 'Bank 3'],
+    labels: accountName,
   };
 
   return (
